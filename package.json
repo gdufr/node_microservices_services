@@ -1,0 +1,28 @@
+{
+  "name": "services",
+  "version": "1.0.0",
+  "description": "This is configuration wrapper library that uses the data-access layer to make soap calls.  Each service will perform all the necessary transformations on the http request before making the soap request",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "reinstall": "for i in $(echo application-configuration cache data-access logging security services); do rm -rf node_modules/$i ; done && npm install",
+    "linklibs": "workingDirectory=\"$(pwd)\" && for libraryName in $(echo application-configuration cache data-access error logging security); do rm -rf $workingDirectory/node_modules/$libraryName && ln -s $workingDirectory/../$libraryName node_modules/$libraryName ; done"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://innersource.accenture.com/projects/NMI/repos/services"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "application-configuration": "git+ssh://git@innersource.accenture.com/nmi/application-configuration.git",
+    "data-access": "git+ssh://git@innersource.accenture.com/nmi/data-access.git",
+    "logging": "git+ssh://git@innersource.accenture.com/nmi/logging.git",
+    "require-dir": "^0.3.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "mocha": "^3.5.0"
+  }
+}
